@@ -9,6 +9,6 @@ Indexes your (properly tagged) mp3s/oggs in Mongo. Probably useful for something
 * `apt-get install mongodb-10gen python-setuptools`
 * `easy_install pymongo`
 
-look at _config/config.yaml_, then
+edit _config/config.yaml_ to taste, then
 
-`./tagaliser.py -h`
+`./store_my_music.py -h`

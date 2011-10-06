@@ -5,5 +5,5 @@ mongo:
   collection:   tracks
 
 paths:
-  music:        /music
+  music:        /tomato/media/music
 
