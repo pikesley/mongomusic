@@ -9,4 +9,6 @@ Indexes your (properly tagged) mp3s/oggs in Mongo. Probably useful for something
 * `apt-get install mongodb-10gen python-setuptools`
 * `easy_install pymongo`
 
+look at `config/config.yaml`, then
+
 `./tagaliser.py -h`
