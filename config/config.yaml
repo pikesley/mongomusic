@@ -1,0 +1,9 @@
+mongo:
+  host:         localhost
+  port:         27017
+  db:           music
+  collection:   tracks
+
+paths:
+  music:        /music
+
