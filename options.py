@@ -7,6 +7,7 @@ action_choices = [
     "update",
     "purge",
     "index",
+    "add_tag",
 ]
 
 parser = argparse.ArgumentParser(
@@ -30,5 +31,15 @@ parser.add_argument(
     action="store_true",
     default=False,
     help="""Be verbose""")
+
+parser.add_argument(
+    "-a", "--artist",
+    dest="artist",
+    help="""Artist to be tagged""")
+
+parser.add_argument(
+    "-t", "--tag",
+    dest="tag",
+    help="""Tag to add""")
 
 options = parser.parse_args()

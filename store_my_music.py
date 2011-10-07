@@ -65,6 +65,22 @@ def purge(verbose=False):
             if verbose: print "Deleting '%s'" % res['path']
             clxn.remove(res["_id"])
 
+def add_tag(artist, tag, verbose=False):
+    results = clxn.find({'artist': re.compile(artist)})
+    for res in list(results):
+        tagged = False
+        try:
+            if tag in res['tags']:
+                tagged = True
+        except KeyError:
+            pass
+
+        if tagged:
+            if verbose: print "'%s' already tagged with '%s'" % (res['full_name'], tag)
+        else:
+            if verbose: print "Adding tag '%s' to '%s'" % (tag, res['full_name'])
+            clxn.update({'_id': res['_id']}, {'$push': {'tags': tag}})
+
 yamlpath = 'config/config.yaml'
 f = open(yamlpath, 'r')
 y = yaml.load(f)
@@ -90,4 +106,7 @@ if __name__ == '__main__':
 
     if options.action == "index":
         index(verbose=options.verbose)
+
+    if options.action == "add_tag":
+        add_tag(options.artist, options.tag, options.verbose)
 
